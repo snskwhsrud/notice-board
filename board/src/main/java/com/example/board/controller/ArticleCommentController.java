@@ -1,5 +1,6 @@
 package com.example.board.controller;
 
+
 import com.example.board.dto.UserAccountDto;
 import com.example.board.dto.request.ArticleCommentRequest;
 import com.example.board.dto.security.BoardPrincipal;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @RequiredArgsConstructor
 @RequestMapping("/comments")

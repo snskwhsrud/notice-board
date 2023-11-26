@@ -328,7 +328,8 @@ class ArticleControllerTest {
         // Given
         long articleId = 1L;
         String userId = "unoTest";
-        willDoNothing().given(articleService).deleteArticle(articleId, userId);
+        willDoNothing().given(articleService)
+                .deleteArticle(articleId, userId);
 
         // When & Then
         mvc.perform(

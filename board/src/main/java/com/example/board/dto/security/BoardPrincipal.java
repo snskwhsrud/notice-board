@@ -37,7 +37,7 @@ public record BoardPrincipal(
     }
 
     public static BoardPrincipal from(UserAccountDto dto) {
-        return  BoardPrincipal.of(
+        return BoardPrincipal.of(
                 dto.userId(),
                 dto.userPassword(),
                 dto.email(),
@@ -46,7 +46,7 @@ public record BoardPrincipal(
         );
     }
 
-    public UserAccountDto toDto(){
+    public UserAccountDto toDto() {
         return UserAccountDto.of(
                 username,
                 password,
@@ -57,24 +57,24 @@ public record BoardPrincipal(
     }
 
 
-    @Override public String getUsername() {return username;}
-    @Override public String getPassword() {return password;}
-    @Override public Collection<? extends GrantedAuthority> getAuthorities() {return authorities;}
-    @Override public boolean isAccountNonExpired() {return true;}
-    @Override public boolean isAccountNonLocked() {return true;}
+    @Override public String getUsername() { return username; }
+    @Override public String getPassword() { return password; }
+    @Override public Collection<? extends GrantedAuthority> getAuthorities() { return authorities; }
 
-    @Override public boolean isCredentialsNonExpired() {return true;}
-    @Override public boolean isEnabled() {return true;}
+    @Override public boolean isAccountNonExpired() { return true; }
+    @Override public boolean isAccountNonLocked() { return true; }
+    @Override public boolean isCredentialsNonExpired() { return true; }
+    @Override public boolean isEnabled() { return true; }
+
 
     public enum RoleType {
         USER("ROLE_USER");
 
-        @Getter
-        private final String name;
+        @Getter private final String name;
 
-        RoleType(String naem) {
-            this.name = naem;
+        RoleType(String name) {
+            this.name = name;
         }
-
     }
+
 }
