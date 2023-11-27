@@ -1,7 +1,5 @@
 package com.example.board.controller;
 
-
-import com.example.board.dto.UserAccountDto;
 import com.example.board.dto.request.ArticleCommentRequest;
 import com.example.board.dto.security.BoardPrincipal;
 import com.example.board.service.ArticleCommentService;
@@ -19,18 +17,17 @@ public class ArticleCommentController {
 
     private final ArticleCommentService articleCommentService;
 
-    @PostMapping ("/new")
+    @PostMapping("/new")
     public String postNewArticleComment(
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleCommentRequest articleCommentRequest
     ) {
         articleCommentService.saveArticleComment(articleCommentRequest.toDto(boardPrincipal.toDto()));
 
-
         return "redirect:/articles/" + articleCommentRequest.articleId();
     }
 
-    @PostMapping ("/{commentId}/delete")
+    @PostMapping("/{commentId}/delete")
     public String deleteArticleComment(
             @PathVariable Long commentId,
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,

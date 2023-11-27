@@ -1,6 +1,5 @@
 package com.example.board.dto;
 
-
 import com.example.board.domain.UserAccount;
 
 import java.time.LocalDateTime;
