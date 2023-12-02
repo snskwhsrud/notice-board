@@ -2,7 +2,6 @@ package com.example.board.controller;
 
 import com.example.board.domain.constant.FormStatus;
 import com.example.board.domain.constant.SearchType;
-import com.example.board.dto.UserAccountDto;
 import com.example.board.dto.request.ArticleRequest;
 import com.example.board.dto.response.ArticleResponse;
 import com.example.board.dto.response.ArticleWithCommentsResponse;
@@ -15,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +41,7 @@ public class ArticleController {
         map.addAttribute("articles", articles);
         map.addAttribute("paginationBarNumbers", barNumbers);
         map.addAttribute("searchTypes", SearchType.values());
+        map.addAttribute("searchTypeHashtag" , SearchType.HASHTAG);
 
         return "articles/index";
     }
@@ -54,6 +53,7 @@ public class ArticleController {
         map.addAttribute("article", article);
         map.addAttribute("articleComments", article.articleCommentsResponse());
         map.addAttribute("totalCount", articleService.getArticleCount());
+        map.addAttribute("searchTypeHashtag" , SearchType.HASHTAG);
 
         return "articles/detail";
     }
