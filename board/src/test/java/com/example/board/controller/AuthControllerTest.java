@@ -53,3 +53,4 @@ class AuthControllerTest {
     @TestComponent
     static class EmptyController {}
 
+}
